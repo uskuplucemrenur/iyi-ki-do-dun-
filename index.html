@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>İyi Ki Doğdun Sevgilim! 21. Yaşın Kutlu Olsun ❤️</title>
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            min-height: 100vh;
+            background: linear-gradient(-45deg, #ff416c, #ff4b2b, #8e2de2, #4a00e0);
+            background-size: 400% 400%;
+            animation: gradientBG 12s ease infinite;
+            color: #fff;
+            overflow-x: hidden;
+            /* Sayfa açıldığında her şeyi yatay ve dikey tam ortalar */
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 30px 20px;
+            position: relative;
+        }
+
+        @keyframes gradientBG {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        /* Arka planda uçuşan kalp ve yıldızlar */
+        .floating-particles {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 0;
+            overflow: hidden;
+        }
+
+        .particle {
+            position: absolute;
+            bottom: -50px;
+            font-size: 24px;
+            animation: floatUp linear infinite;
+            opacity: 0.85;
+        }
+
+        @keyframes floatUp {
+            0% {
+                transform: translateY(0) rotate(0deg) scale(0.8);
+                opacity: 0;
+            }
+            20% { opacity: 0.9; }
+            80% { opacity: 0.9; }
+            100% {
+                transform: translateY(-110vh) rotate(360deg) scale(1.2);
+                opacity: 0;
+            }
+        }
+
+        /* Ana İçerik Kutusu */
+        .container {
+            position: relative;
+            z-index: 1;
+            max-width: 900px;
+            width: 100%;
+            margin: auto;  
+            padding: 40px 30px;
+            text-align: center;
+            animation: fadeInDown 1.2s ease-out;
+        }
+
+        @keyframes fadeInDown {
+            from { opacity: 0; transform: translateY(-30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .age-badge {
+            display: inline-block;
+            background: rgba(255, 255, 255, 0.25);
+            border: 1px solid rgba(255, 255, 255, 0.5);
+            padding: 6px 20px;
+            border-radius: 50px;
+            font-weight: 700;
+            font-size: 0.95rem;
+            letter-spacing: 1px;
+            margin-bottom: 12px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+        }
+
+        h1 {
+            font-family: 'Pacifico', cursive;
+            font-size: 3.3rem;
+            margin-bottom: 10px;
+            text-shadow: 2px 4px 10px rgba(0, 0, 0, 0.3);
+            animation: pulseText 2.5s infinite;
+        }
+
+        @keyframes pulseText {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.04); }
+        }
+
+        .subtitle {
+            font-size: 1.15rem;
+            font-weight: 300;
+            margin-bottom: 35px;
+            color: #ffe6eb;
+        }
+
+        /* Fotoğraf Galerisi */
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+            gap: 22px;
+            margin-bottom: 35px;
+        }
+
+        .photo-card {
+            background: #fff;
+            padding: 12px 12px 22px 12px;
+            border-radius: 12px;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+            color: #333;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            cursor: pointer;
+        }
+
+        .photo-card:nth-child(odd) { transform: rotate(-3deg); }
+        .photo-card:nth-child(even) { transform: rotate(3deg); }
+
+        .photo-card:hover {
+            transform: scale(1.1) rotate(0deg) !important;
+            z-index: 10;
+            box-shadow: 0 15px 30px rgba(0,0,0,0.4);
+        }
+
+        .photo-card img {
+            width: 100%;
+            height: 210px;
+            object-fit: cover;
+            border-radius: 8px;
+            display: block;
+        }
+
+        .photo-caption {
+            margin-top: 12px;
+            font-family: 'Pacifico', cursive;
+            font-size: 1.05rem;
+            color: #ff416c;
+        }
+
+        /* Kutlama Mesajı */
+        .message-box {
+            padding: 22px 25px;
+            margin-bottom: 25px;
+            line-height: 1.7;
+            font-size: 1.05rem;
+        }
+
+        .btn-surprise {
+            background: linear-gradient(45deg, #ff9a9e 0%, #fecfef 99%, #fecfef 100%);
+            color: #d61c4e;
+            border: none;
+            padding: 15px 36px;
+            font-size: 1.1rem;
+            font-weight: 700;
+            border-radius: 50px;
+            cursor: pointer;
+            box-shadow: 0 8px 20px rgba(255, 65, 108, 0.4);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .btn-surprise:hover {
+            transform: translateY(-3px) scale(1.05);
+            box-shadow: 0 12px 25px rgba(255, 65, 108, 0.6);
+        }
+
+        /* Gizli Not Alanı */
+        #secretNote {
+            display: none;
+            margin-top: 25px;
+            padding: 25px;
+            background: rgba(255, 255, 255, 0.94);
+            color: #222;
+            border-radius: 18px;
+            font-weight: 500;
+            line-height: 1.7;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+            animation: popIn 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+
+        #secretNote h3 {
+            color: #d61c4e;
+            font-family: 'Pacifico', cursive;
+            font-size: 1.7rem;
+            margin-bottom: 8px;
+        }
+
+        .music-control {
+            display: none;
+            margin-top: 15px;
+            background: #ff416c;
+            color: #fff;
+            border: none;
+            padding: 8px 18px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: 500;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+
+        .music-control:hover {
+            background: #d61c4e;
+        }
+
+        @keyframes popIn {
+            0% { opacity: 0; transform: scale(0.5); }
+            100% { opacity: 1; transform: scale(1); }
+        }
+
+        @media (max-width: 600px) {
+            h1 { font-size: 2.3rem; }
+            .gallery { grid-template-columns: 1fr 1fr; gap: 15px; }
+            .photo-card img { height: 155px; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="floating-particles" id="particles"></div>
+
+    <div class="container">
+        <div class="age-badge">✨ 21. YAŞIN KUTLU OLSUN ✨</div>
+        <h1>İyi Ki Doğdun Sevgilim! 🎂</h1>
+        <p class="subtitle">Hayatımm seninle geçen her günüm ap ayrı güzel iyi ki varsın iyi ki hayatımdasın </p>
+
+        <div class="gallery">
+            <div class="photo-card">
+                <img src="foto1.jpeg" alt="Anımız 1">
+                <div class="photo-caption">Birtanemm ❤️</div>
+            </div>
+            <div class="photo-card">
+                <img src="foto2.jpeg" alt="Anımız 2">
+                <div class="photo-caption">Yanında her anım çok güzel ✨</div>
+            </div>
+            <div class="photo-card">
+                <img src="foto3.jpeg" alt="Anımız 3">
+                <div class="photo-caption">İyi ki Varsın Sevgilim💑</div>
+            </div>
+            <div class="photo-card">
+                <img src="foto4.jpeg" alt="Anımız 4">
+                <div class="photo-caption">Birlikte nice senelere🎉</div>
+            </div>
+        </div>
+
+        <div class="message-box">
+            <p>
+              Seninle geçirdiğim her an benim için çok kıymetli ve güzel .Bu yaşın sana mutluluk,huzur ve bolca benli zaman getirsin💑. Nice güzel yaşlarını birlikte kutlamaya , iyi ki doğdun sevgilim.
+            </p>
+        </div>
+
+       <button class="btn-surprise" onclick="startBirthdayMusic()">Süprizzz</button>
+
+        
+    </div>
+
+    <script>
+        // Arka planda uçuşan kalp ve konfetiler
+        const particlesContainer = document.getElementById('particles');
+        const symbols = ['❤️', '✨', '🎂', '🎉', '💖', '🎈', '21'];
+
+        function createParticle() {
+            const particle = document.createElement('div');
+            particle.classList.add('particle');
+            particle.innerText = symbols[Math.floor(Math.random() * symbols.length)];
+            particle.style.left = Math.random() * 100 + 'vw';
+            particle.style.animationDuration = (Math.random() * 5 + 5) + 's';
+            particle.style.fontSize = (Math.random() * 14 + 16) + 'px';
+            
+            particlesContainer.appendChild(particle);
+
+            setTimeout(() => {
+                particle.remove();
+            }, 10000);
+        }
+
+        setInterval(createParticle, 400);
+
+        // Dahili Happy Birthday Melodisi (Ekstra MP3 dosyası gerektirmez)
+        let audioCtx = null;
+        let isPlaying = false;
+
+        function playHappyBirthday() {
+            if (isPlaying) return;
+            isPlaying = true;
+
+            if (!audioCtx) {
+                audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+            }
+            if (audioCtx.state === 'suspended') {
+                audioCtx.resume();
+            }
+
+            // Notalar (Frekans Hz, Süre saniye)
+            const notes = [
+                [261.63, 0.35], [261.63, 0.15], [293.66, 0.5], [261.63, 0.5], [349.23, 0.5], [329.63, 0.9], // Happy birthday to you
+                [261.63, 0.35], [261.63, 0.15], [293.66, 0.5], [261.63, 0.5], [392.00, 0.5], [349.23, 0.9], // Happy birthday to you
+                [261.63, 0.35], [261.63, 0.15], [523.25, 0.5], [440.00, 0.5], [349.23, 0.5], [329.63, 0.5], [293.66, 0.9], // Happy birthday dear...
+                [466.16, 0.35], [466.16, 0.15], [440.00, 0.5], [349.23, 0.5], [392.00, 0.5], [349.23, 1.1]  // Happy birthday to you
+            ];
+
+            let currentTime = audioCtx.currentTime + 0.05;
+
+            notes.forEach(([freq, duration]) => {
+                const osc = audioCtx.createOscillator();
+                const gain = audioCtx.createGain();
+
+                osc.type = 'triangle'; // Yumuşak müzik kutusu tonu
+                osc.frequency.setValueAtTime(freq, currentTime);
+
+                gain.gain.setValueAtTime(0.001, currentTime);
+                gain.gain.exponentialRampToValueAtTime(0.25, currentTime + 0.04);
+                gain.gain.exponentialRampToValueAtTime(0.001, currentTime + duration);
+
+                osc.connect(gain);
+                gain.connect(audioCtx.destination);
+
+                osc.start(currentTime);
+                osc.stop(currentTime + duration);
+
+                currentTime += duration + 0.05;
+            });
+
+            const totalDuration = (currentTime - audioCtx.currentTime) * 1000;
+            setTimeout(() => {
+                isPlaying = false;
+            }, totalDuration);
+        }
+
+        // Sürpriz butonuna tıklanınca notu aç, müziği çal ve kalp yağmuru başlat
+        function startBirthdayMusic() {
+    playHappyBirthday();
+
+    for (let i = 0; i < 35; i++) {
+        setTimeout(createParticle, i * 45);
+    }
+}
+       
+    </script>
+</body>
+</html>
